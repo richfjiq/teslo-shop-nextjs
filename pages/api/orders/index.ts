@@ -21,6 +21,7 @@ export default function handler(
       res.status(400).json({ message: 'Bad request' });
   }
 }
+
 const createOrder = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const { orderItems, total } = req.body as IOrder;
   const session: any = await getSession({ req });
@@ -59,6 +60,7 @@ const createOrder = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     // Todo bien hasta este punto
     const userId = session.user._id;
     const newOrder = new Order({ ...req.body, isPaid: false, user: userId });
+    newOrder.total = Math.round(newOrder.total * 100) / 100;
     await newOrder.save();
     await db.disconnect();
 

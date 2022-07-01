@@ -12,6 +12,9 @@ export interface IOrder {
   total: number;
   isPaid: boolean;
   paidAt?: string;
+  transactionId?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface IOrderItem {

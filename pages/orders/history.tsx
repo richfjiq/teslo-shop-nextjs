@@ -7,7 +7,6 @@ import { ShopLayout } from '../../components/layouts';
 import { getSession } from 'next-auth/react';
 import { dbOrders } from '../../database';
 import { IOrder } from '../../interfaces';
-import { FirstPage } from '@mui/icons-material';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 100 },
